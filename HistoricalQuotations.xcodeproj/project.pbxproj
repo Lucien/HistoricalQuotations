@@ -81,6 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF081D53219B8CA700B0A3D3 /* HistoricalQuotations */ = {
+			isa = PBXGroup;
+			children = (
+				DFD520252195A07E009D8D0C /* Extensions */,
+				DFD5201E219587BD009D8D0C /* Models */,
+				OBJ_13 /* Parser.swift */,
+				DFD5202821967066009D8D0C /* DailyPaperQuotationParser.swift */,
+			);
+			path = HistoricalQuotations;
+			sourceTree = "<group>";
+		};
 		DFD5201E219587BD009D8D0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +140,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DFD520252195A07E009D8D0C /* Extensions */,
-				DFD5201E219587BD009D8D0C /* Models */,
-				OBJ_13 /* Parser.swift */,
-				DFD5202821967066009D8D0C /* DailyPaperQuotationParser.swift */,
+				DF081D53219B8CA700B0A3D3 /* HistoricalQuotations */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
