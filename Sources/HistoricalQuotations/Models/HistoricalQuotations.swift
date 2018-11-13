@@ -1,6 +1,6 @@
 import Foundation
 
-protocol HeaderProtocol {
+public protocol HeaderProtocol {
     var registerType: HistoricalQuotations.RegisterType { get }
     var filename: String { get }
     var sourceCode: String { get }
@@ -16,18 +16,18 @@ public struct HistoricalQuotations {
     }
 
     public struct Header: HeaderProtocol {
-        let registerType: RegisterType
-        let filename: String
-        let sourceCode: String
-        let fileCreationDate: Date
+        public let registerType: RegisterType
+        public let filename: String
+        public let sourceCode: String
+        public let fileCreationDate: Date
     }
 
     public struct Trailer: HeaderProtocol {
-        let registerType: RegisterType
-        let filename: String
-        let sourceCode: String
-        let fileCreationDate: Date
-        let registerCount: Int
+        public let registerType: RegisterType
+        public let filename: String
+        public let sourceCode: String
+        public let fileCreationDate: Date
+        public let registerCount: Int
     }
 
     public struct PaperQuotation {
@@ -45,59 +45,59 @@ public struct HistoricalQuotations {
             case putOptions = "080"
         }
 
-        let registerType: RegisterType
-        let exchangeDate: Date
-        let bdiCode: String
-        let paperNegotiationCode: String
-        let marketType: MarketType
-        let abbreviattedName: String
-        let paperSpecification: String
-        let forwardMarketTermDays: String
-        let referenceCurrency: String?
-        let marketPaperOpeningFloorPrice: NSDecimalNumber
-        let marketPaperHightestFloorPrice: NSDecimalNumber
-        let marketPaperLowestFloorPrice: NSDecimalNumber
-        let marketPaperAverageFloorPrice: NSDecimalNumber
-        let marketPaperLastNegotiatedPrice: NSDecimalNumber
-        let marketPaperBestPurchaseOfferPrice: NSDecimalNumber
-        let marketPaperBestSalesOfferPrice: NSDecimalNumber
-        let numberOfTradesConductedWithMarketPaper: UInt
-        let totalQuantityOfTitlesTraded: UInt
-        let totalVolumeOfTitlesNegotiated: UInt
-        let strikePriceForTheOptionsMarket: NSDecimalNumber
-        let strikePriceOrContractAmountForOptions: Int
-        let maturityDateForOptions: Date
-        let paperQuotationFactor: Int
-        let ptoexe: UInt
-        let paperCodeISISystem: String
-        let paperDistributionNumber: String
+        public let registerType: RegisterType
+        public let exchangeDate: Date
+        public let bdiCode: String
+        public let paperNegotiationCode: String
+        public let marketType: MarketType
+        public let abbreviattedName: String
+        public let paperSpecification: String
+        public let forwardMarketTermDays: String
+        public let referenceCurrency: String?
+        public let marketPaperOpeningFloorPrice: NSDecimalNumber
+        public let marketPaperHightestFloorPrice: NSDecimalNumber
+        public let marketPaperLowestFloorPrice: NSDecimalNumber
+        public let marketPaperAverageFloorPrice: NSDecimalNumber
+        public let marketPaperLastNegotiatedPrice: NSDecimalNumber
+        public let marketPaperBestPurchaseOfferPrice: NSDecimalNumber
+        public let marketPaperBestSalesOfferPrice: NSDecimalNumber
+        public let numberOfTradesConductedWithMarketPaper: UInt
+        public let totalQuantityOfTitlesTraded: UInt
+        public let totalVolumeOfTitlesNegotiated: UInt
+        public let strikePriceForTheOptionsMarket: NSDecimalNumber
+        public let strikePriceOrContractAmountForOptions: Int
+        public let maturityDateForOptions: Date
+        public let paperQuotationFactor: Int
+        public let ptoexe: UInt
+        public let paperCodeISISystem: String
+        public let paperDistributionNumber: String
 
-        init(registerType: RegisterType,
-             exchangeDate: Date,
-             bdiCode: String,
-             paperNegotiationCode: String,
-             marketType: MarketType,
-             abbreviattedName: String,
-             paperSpecification: String,
-             forwardMarketTermDays: String,
-             referenceCurrency: String?,
-             marketPaperOpeningFloorPrice: UInt64,
-             marketPaperHightestFloorPrice: UInt64,
-             marketPaperLowestFloorPrice: UInt64,
-             marketPaperAverageFloorPrice: UInt64,
-             marketPaperLastNegotiatedPrice: UInt64,
-             marketPaperBestPurchaseOfferPrice: UInt64,
-             marketPaperBestSalesOfferPrice: UInt64,
-             numberOfTradesConductedWithMarketPaper: UInt,
-             totalQuantityOfTitlesTraded: UInt,
-             totalVolumeOfTitlesNegotiated: UInt,
-             strikePriceForTheOptionsMarket: UInt64,
-             strikePriceOrContractAmountForOptions: Int,
-             maturityDateForOptions: Date,
-             paperQuotationFactor: Int,
-             ptoexe: UInt,
-             paperCodeISISystem: String,
-             paperDistributionNumber: String) throws {
+        public init(registerType: RegisterType,
+                    exchangeDate: Date,
+                    bdiCode: String,
+                    paperNegotiationCode: String,
+                    marketType: MarketType,
+                    abbreviattedName: String,
+                    paperSpecification: String,
+                    forwardMarketTermDays: String,
+                    referenceCurrency: String?,
+                    marketPaperOpeningFloorPrice: UInt64,
+                    marketPaperHightestFloorPrice: UInt64,
+                    marketPaperLowestFloorPrice: UInt64,
+                    marketPaperAverageFloorPrice: UInt64,
+                    marketPaperLastNegotiatedPrice: UInt64,
+                    marketPaperBestPurchaseOfferPrice: UInt64,
+                    marketPaperBestSalesOfferPrice: UInt64,
+                    numberOfTradesConductedWithMarketPaper: UInt,
+                    totalQuantityOfTitlesTraded: UInt,
+                    totalVolumeOfTitlesNegotiated: UInt,
+                    strikePriceForTheOptionsMarket: UInt64,
+                    strikePriceOrContractAmountForOptions: Int,
+                    maturityDateForOptions: Date,
+                    paperQuotationFactor: Int,
+                    ptoexe: UInt,
+                    paperCodeISISystem: String,
+                    paperDistributionNumber: String) throws {
 
             self.registerType = registerType
             self.exchangeDate = exchangeDate
@@ -108,7 +108,7 @@ public struct HistoricalQuotations {
             self.paperSpecification = paperSpecification
             self.forwardMarketTermDays = forwardMarketTermDays
             self.referenceCurrency = type(of: self).convertToISO4217(from: referenceCurrency)
-
+            
             let exponent: Int16 = -2
             let isNegative = false
             self.marketPaperOpeningFloorPrice = NSDecimalNumber(mantissa: marketPaperOpeningFloorPrice,
@@ -156,8 +156,8 @@ public struct HistoricalQuotations {
         }
     }
 
-    let header: Header
-    let paperQuotations: [PaperQuotation]
-    let trailer: Trailer
+    public let header: Header
+    public let paperQuotations: [PaperQuotation]
+    public let trailer: Trailer
 }
 

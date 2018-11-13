@@ -1,18 +1,37 @@
 import Foundation
 
-enum ParserError: Error {
+public enum ParserError: Error {
     case header(String)
     case paperQuotation(String)
     case trailer(String)
 }
 
-class Parser {
+public class Parser {
 
     lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYYMMdd"
         return dateFormatter
     }()
+
+    public func historicalQuotationsFromFile(at path: String) throws -> HistoricalQuotations {
+        let url = URL(fileURLWithPath: path)
+        let content = try String(contentsOf: url)
+        let lines = content.components(separatedBy: .newlines)
+
+        let header = try parseHeader(line: lines.first)
+        let trailer = try parseTrailer(line: lines.last)
+
+        let paperQuotationLines = Array(lines.dropFirst())
+        let paperQuotations: [HistoricalQuotations.PaperQuotation]
+        paperQuotations = try paperQuotationLines.map { line -> HistoricalQuotations.PaperQuotation in
+            try parseDailyPaperQuotation(line: line)
+        }
+
+        return HistoricalQuotations(header: header,
+                                    paperQuotations: paperQuotations,
+                                    trailer: trailer)
+    }
 
     func parseHeader(line: String?) throws -> HistoricalQuotations.Header {
 
@@ -71,24 +90,5 @@ class Parser {
                                             sourceCode: header.sourceCode,
                                             fileCreationDate: header.fileCreationDate,
                                             registerCount: registerCount)
-    }
-
-    func historicalQuotationsFromFile(at path: String) throws -> HistoricalQuotations {
-        let url = URL(fileURLWithPath: path)
-        let content = try String(contentsOf: url)
-        let lines = content.components(separatedBy: .newlines)
-
-        let header = try parseHeader(line: lines.first)
-        let trailer = try parseTrailer(line: lines.last)
-
-        let paperQuotationLines = Array(lines.dropFirst())
-        let paperQuotations: [HistoricalQuotations.PaperQuotation]
-        paperQuotations = try paperQuotationLines.map { line -> HistoricalQuotations.PaperQuotation in
-            try parseDailyPaperQuotation(line: line)
-        }
-
-        return HistoricalQuotations(header: header,
-                                    paperQuotations: paperQuotations,
-                                    trailer: trailer)
     }
 }

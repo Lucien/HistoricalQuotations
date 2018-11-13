@@ -56,8 +56,8 @@
 		DFD520262195A08E009D8D0C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DFD5202821967066009D8D0C /* DailyPaperQuotationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPaperQuotationParser.swift; sourceTree = "<group>"; };
 		DFD5202A21967151009D8D0C /* DailyPaperQuotationParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPaperQuotationParserTests.swift; sourceTree = "<group>"; };
-		"HistoricalQuotations::HistoricalQuotations::Product" /* HistoricalQuotations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HistoricalQuotations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"HistoricalQuotations::HistoricalQuotationsTests::Product" /* HistoricalQuotationsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = HistoricalQuotationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"HistoricalQuotations::HistoricalQuotations::Product" /* HistoricalQuotations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HistoricalQuotations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"HistoricalQuotations::HistoricalQuotationsTests::Product" /* HistoricalQuotationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = HistoricalQuotationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_13 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +202,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"HistoricalQuotations::HistoricalQuotations" = {
+						LastSwiftMigration = 1000;
+					};
+					"HistoricalQuotations::HistoricalQuotationsTests" = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "HistoricalQuotations" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -288,7 +296,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = HistoricalQuotations;
 			};
 			name = Debug;
@@ -312,7 +320,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = HistoricalQuotations;
 			};
 			name = Release;
@@ -409,7 +417,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = HistoricalQuotationsTests;
 			};
 			name = Debug;
@@ -430,7 +438,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = HistoricalQuotationsTests;
 			};
 			name = Release;
