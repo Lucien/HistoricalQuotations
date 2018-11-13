@@ -14,6 +14,8 @@ public class Parser {
         return dateFormatter
     }()
 
+    public init() {}
+
     public func historicalQuotationsFromFile(at path: String) throws -> HistoricalQuotations {
         let url = URL(fileURLWithPath: path)
         let content = try String(contentsOf: url)
