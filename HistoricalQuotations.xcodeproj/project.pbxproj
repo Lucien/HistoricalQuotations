@@ -27,6 +27,10 @@
 		DFD520272195A08E009D8D0C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD520262195A08E009D8D0C /* String+Extension.swift */; };
 		DFD5202921967066009D8D0C /* DailyPaperQuotationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5202821967066009D8D0C /* DailyPaperQuotationParser.swift */; };
 		DFD5202B21967151009D8D0C /* DailyPaperQuotationParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5202A21967151009D8D0C /* DailyPaperQuotationParserTests.swift */; };
+		DFE9B77E219BA387001B1DA6 /* Array+Concurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9B77D219BA387001B1DA6 /* Array+Concurrent.swift */; };
+		DFE9B782219BAF31001B1DA6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9B781219BAF31001B1DA6 /* Header.swift */; };
+		DFE9B784219BAF49001B1DA6 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9B783219BAF49001B1DA6 /* Trailer.swift */; };
+		DFE9B786219BB279001B1DA6 /* PaperQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9B785219BB279001B1DA6 /* PaperQuotation.swift */; };
 		OBJ_33 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Parser.swift */; };
 		OBJ_40 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_56 /* HistoricalQuotations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "HistoricalQuotations::HistoricalQuotations::Product" /* HistoricalQuotations.framework */; };
@@ -56,6 +60,10 @@
 		DFD520262195A08E009D8D0C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DFD5202821967066009D8D0C /* DailyPaperQuotationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPaperQuotationParser.swift; sourceTree = "<group>"; };
 		DFD5202A21967151009D8D0C /* DailyPaperQuotationParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPaperQuotationParserTests.swift; sourceTree = "<group>"; };
+		DFE9B77D219BA387001B1DA6 /* Array+Concurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Concurrent.swift"; sourceTree = "<group>"; };
+		DFE9B781219BAF31001B1DA6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		DFE9B783219BAF49001B1DA6 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
+		DFE9B785219BB279001B1DA6 /* PaperQuotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperQuotation.swift; sourceTree = "<group>"; };
 		"HistoricalQuotations::HistoricalQuotations::Product" /* HistoricalQuotations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HistoricalQuotations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"HistoricalQuotations::HistoricalQuotationsTests::Product" /* HistoricalQuotationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = HistoricalQuotationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_13 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -96,6 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				DFD5201F219587C9009D8D0C /* HistoricalQuotations.swift */,
+				DFE9B781219BAF31001B1DA6 /* Header.swift */,
+				DFE9B783219BAF49001B1DA6 /* Trailer.swift */,
+				DFE9B785219BB279001B1DA6 /* PaperQuotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DFD520262195A08E009D8D0C /* String+Extension.swift */,
+				DFE9B77D219BA387001B1DA6 /* Array+Concurrent.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -238,7 +250,11 @@
 			files = (
 				DFD52020219587C9009D8D0C /* HistoricalQuotations.swift in Sources */,
 				DFD520272195A08E009D8D0C /* String+Extension.swift in Sources */,
+				DFE9B786219BB279001B1DA6 /* PaperQuotation.swift in Sources */,
 				DFD5202921967066009D8D0C /* DailyPaperQuotationParser.swift in Sources */,
+				DFE9B784219BAF49001B1DA6 /* Trailer.swift in Sources */,
+				DFE9B782219BAF31001B1DA6 /* Header.swift in Sources */,
+				DFE9B77E219BA387001B1DA6 /* Array+Concurrent.swift in Sources */,
 				OBJ_33 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

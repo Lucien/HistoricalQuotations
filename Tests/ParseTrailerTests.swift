@@ -18,7 +18,7 @@ class ParserTrailerTests: XCTestCase {
     }
 
     func testTrailerSourceCode() {
-        XCTAssertEqual(trailer.sourceCode, "BOVESPA ")
+        XCTAssertEqual(trailer.sourceCode, "BOVESPA")
     }
 
     func testTrailerFileCreationDate() {
@@ -29,5 +29,21 @@ class ParserTrailerTests: XCTestCase {
 
     func testTrailerRegisterCount() {
         XCTAssertEqual(trailer.registerCount, 491487)
+    }
+
+    func testEncodeAndDecode() {
+        let encoder = JSONEncoder()
+        do {
+            let trailerData = try encoder.encode(trailer)
+
+            let decoder = JSONDecoder()
+            do {
+                _ = try decoder.decode(HistoricalQuotations.Trailer.self, from: trailerData)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
 }

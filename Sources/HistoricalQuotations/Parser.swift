@@ -18,16 +18,20 @@ public class Parser {
 
     public func historicalQuotationsFromFile(at path: String) throws -> HistoricalQuotations {
         let url = URL(fileURLWithPath: path)
-        let content = try String(contentsOf: url)
-        let lines = content.components(separatedBy: .newlines)
+
+        let content = try! String(contentsOf: url)
+        var lines = content.split(whereSeparator: { character -> Bool in
+            character == "\n" || character == "\r\n"
+        }).map(String.init)
 
         let header = try parseHeader(line: lines.first)
         let trailer = try parseTrailer(line: lines.last)
 
-        let paperQuotationLines = Array(lines.dropFirst())
-        let paperQuotations: [HistoricalQuotations.PaperQuotation]
-        paperQuotations = try paperQuotationLines.map { line -> HistoricalQuotations.PaperQuotation in
-            try parseDailyPaperQuotation(line: line)
+        lines = Array(lines.dropFirst())
+        lines = Array(lines.dropLast())
+
+        let paperQuotations = lines.concurrentMap { line -> HistoricalQuotations.PaperQuotation in
+            try! self.parseDailyPaperQuotation(line: line)
         }
 
         return HistoricalQuotations(header: header,

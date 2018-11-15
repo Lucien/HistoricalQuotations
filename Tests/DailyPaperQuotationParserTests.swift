@@ -112,4 +112,20 @@ class DailyPaperQuotationParserTests: XCTestCase {
     func testPaperDistributionNumber() {
         XCTAssertEqual(paperQuotation.paperDistributionNumber, "005")
     }
+
+    func testEncodeAndDecode() {
+        let encoder = JSONEncoder()
+        do {
+            let paperQuotationData = try encoder.encode(paperQuotation)
+
+            let decoder = JSONDecoder()
+            do {
+                _ = try decoder.decode(HistoricalQuotations.PaperQuotation.self, from: paperQuotationData)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }
