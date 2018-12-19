@@ -139,7 +139,7 @@ extension Parser {
         }
 
         // PTOEXE – STRIKE PRICE IN POINTS FOR OPTIONS REFERENCED IN US DOLLARS OR CONTRACT AMOUNT IN POINTS FOR SECONDARY FORWARD
-        let ptoexeSubstringInfo = line.substringInfo(startRange: fatcotSubstringInfo.range, offset: 13)
+        let ptoexeSubstringInfo = line.substringInfo(startRange: fatcotSubstringInfo.range, offset: currencySize)
         guard let ptoexe = UInt(ptoexeSubstringInfo.string) else {
             throw ParserError.paperQuotation("PTOEXE")
         }
